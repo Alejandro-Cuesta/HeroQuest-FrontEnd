@@ -1,6 +1,6 @@
 import React from 'react';
 
-// 🔹 Componente temporal para evitar errores de compilación
+// Componente temporal para evitar errores de compilación
 // Aquí luego implementaremos la lógica de la sala y el tablero de juego
 const RoomModal = () => {
   return (
