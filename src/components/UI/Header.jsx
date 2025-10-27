@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import './header.css';
+import '../../styles/components/header.css';
 
 const Header = () => {
   const { user, logoutUser } = useAuth();
@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__logo">
-        <h1>HeroQuest</h1>
+        <img src="/assets/icons/Logo 1.jpg" alt="HeroQuest Logo" />
       </div>
 
       <div className="header__user">
@@ -16,7 +16,7 @@ const Header = () => {
           <>
             <span className="header__displayName">{user.displayName}</span>
             <button className="header__logout" onClick={logoutUser} title="Logout">
-              🪜 {/* <img src="/assets/icons/logout.png" alt="Logout" /> añadir cuando tengamos la imagen*/}
+              <img src="/assets/icons/Logout 1.jpg" alt="Logout" />
             </button>
           </>
         ) : null}

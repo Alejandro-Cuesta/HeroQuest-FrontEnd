@@ -1,8 +1,8 @@
 import React from 'react';
 
 // 🔹 Componente temporal para evitar errores de compilación
-// Aquí luego implementaremos la lógica de la sala y el tablero de juego
-const RoomModal = () => {
+// Más adelante implementaremos la lógica y diseño del inventario
+const InventoryModal = () => {
   return (
     <div
       style={{
@@ -14,10 +14,10 @@ const RoomModal = () => {
         borderRadius: '10px',
       }}
     >
-      <h2>Room</h2>
-      <p>(Modal de la sala en construcción)</p>
+      <h2>Inventario</h2>
+      <p>(Modal del inventario en construcción)</p>
     </div>
   );
 };
 
-export default RoomModal;
+export default InventoryModal;

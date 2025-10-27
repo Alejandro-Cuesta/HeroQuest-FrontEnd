@@ -1,0 +1,31 @@
+.register-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-page__background {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/backgrounds/Fondo 1.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.register-form {
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid gold;
+  border-radius: 12px;
+  padding: 2rem;
+  color: #f0e6d2;
+  text-align: center;
+  width: 320px;
+}
+
+.register-form h2 {
+  color: gold;
+  font-family: 'UnifrakturCook', cursive;
+}

@@ -1,0 +1,147 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.character-modal {
+  background: #1a1a1a;
+  color: #f0e6d2;
+  border: 2px solid gold;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 1000px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: gold;
+  cursor: pointer;
+}
+
+.character-modal__top {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.character-modal__image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-modal__image img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+  border: 2px solid gold;
+}
+
+.character-modal {
+  overflow: hidden;
+}
+
+.character-modal__stats {
+  flex: 2;
+}
+
+.character-modal__stats h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: gold;
+  font-family: 'UnifrakturCook', cursive;
+}
+
+.character-modal__stats ul {
+  list-style: none;
+  padding: 0;
+}
+
+.character-modal__stats li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+}
+
+.character-modal__stats li span:first-child {
+  text-transform: capitalize;
+}
+
+.character-modal__stats button {
+  background-color: gold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+.character-modal__bottom {
+  margin-top: 1rem;
+}
+
+.character-modal__progress {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.character-modal__skills {
+  text-align: center;
+}
+
+.character-modal__skills h3 {
+  color: gold;
+  margin-bottom: 1rem;
+  font-family: 'UnifrakturCook', cursive;
+}
+
+.character-modal__skills-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.skill {
+  border: 2px solid gold;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 30%;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.skill h4 {
+  margin-bottom: 0.5rem;
+  color: gold;
+}
+
+.skill p {
+  font-size: 0.9rem;
+}
+
+/* Fuente medieval */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');

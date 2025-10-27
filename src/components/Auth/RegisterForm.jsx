@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { register } from '../../api/authApi';
 import { useNavigate } from 'react-router-dom'; // hook para redirigir al login 
+import '../../styles/pages/register.css';
 
 // RegisterForm: componente para registrar un nuevo usuario
 const RegisterForm = () => {
@@ -28,7 +29,7 @@ const RegisterForm = () => {
 
     // Validación básica en frontend: password y confirmPassword deben coincidir
     if (form.password !== form.confirmPassword) {
-      setError('Passwords do not match');
+      setError('Las contraseñas no coinciden');
       return;
     }
 
@@ -37,18 +38,21 @@ const RegisterForm = () => {
       await register(form); 
       
       // Mostrar mensaje de éxito
-      alert('Registration successful! Please check your email and then log in.');
+      alert('Registro exitoso! Revisa tu correo y luego inicia sesión');
 
       // Redirigir al login usando React Router (SPA sin recargar la página)
       navigate('/login');
     } catch (err) {
       // Mostrar cualquier error devuelto por el backend
-      setError(err.response?.data?.message || 'An error occurred during registration');
+      setError(err.response?.data?.message || 'Error al registrar el usuario');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+     <div className="register-page">
+      <div className="register-page__background" />
+
+    <form onSubmit={handleSubmit}  className="register-form">
       <h2>Register</h2>
 
       {/* Mostrar error si existe */}
@@ -68,7 +72,7 @@ const RegisterForm = () => {
       <input
         type="text"
         name="displayName"
-        placeholder="Display Name"
+        placeholder="Nombre de usuario"
         value={form.displayName}
         onChange={handleChange}
         required
@@ -78,7 +82,7 @@ const RegisterForm = () => {
       <input
         type="password"
         name="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         value={form.password}
         onChange={handleChange}
         required
@@ -88,15 +92,20 @@ const RegisterForm = () => {
       <input
         type="password"
         name="confirmPassword"
-        placeholder="Confirm Password"
+        placeholder="Confirmar Contraseña"
         value={form.confirmPassword}
         onChange={handleChange}
         required
       />
 
       {/* Botón de envío */}
-      <button type="submit">Register</button>
+      <button type="submit">Registrarse</button>
+
+      <p className="register-form__login">
+        ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
+      </p>
     </form>
+  </div>
   );
 };
 

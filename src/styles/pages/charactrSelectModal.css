@@ -1,0 +1,64 @@
+.character-select-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.character-select-background {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/backgrounds/Fondo 5.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4); /* oscurece el fondo */
+  z-index: -1;
+}
+
+.character-select-modal {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid gold;
+  border-radius: 10px;
+  color: #f0e6d2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  width: 90%;
+}
+
+.character-select-modal h2 {
+  font-family: 'UnifrakturCook', cursive;
+  color: gold;
+  margin-bottom: 1.5rem;
+}
+
+.character-select-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.character-option {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-option img {
+  width: 250px;
+  border-radius: 10px;
+  border: 2px solid gold;
+}
+
+.character-option p {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  color: gold;
+  font-family: 'UnifrakturCook', cursive;
+}
+
+.character-option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px gold;
+}
