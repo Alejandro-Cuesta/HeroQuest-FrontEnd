@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { register } from '../../api/authApi';
 import { useNavigate } from 'react-router-dom'; // hook para redirigir al login 
+import { Link } from 'react-router-dom';
 import '../../styles/pages/register.css';
 
 // RegisterForm: componente para registrar un nuevo usuario
