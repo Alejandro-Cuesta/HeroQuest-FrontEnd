@@ -1,26 +1,55 @@
 import React, { useState } from 'react';
+import { updateHeroStats } from '../../api/characterApi'; // importamos la función del API
 import '../../styles/components/characterModal.css';
 
+/**
+ * Modal que muestra las estadísticas del héroe.
+ * - Cada clic en "+" sube el stat y lo guarda automáticamente en el backend.
+ * - No hay botón de "Guardar cambios" (autosave).
+ */
 const CharacterModal = ({ onClose }) => {
-  // Estado de ejemplo para las estadísticas
+  // Estado inicial del héroe (luego vendrá del backend)
   const [stats, setStats] = useState({
     vida: 10,
     defensa: 10,
-    dano: 10,
+    daño: 10,
     movimiento: 10,
   });
 
   const [puntos, setPuntos] = useState(15);
-  const [personaje] = useState('Barbaro'); // o 'Guerrero'
+  const [personaje] = useState('Barbaro');
   const [nivel] = useState(1);
   const [expActual] = useState(10);
   const [expMax] = useState(100);
+  const [mensaje, setMensaje] = useState('');
 
-  // Incrementar estadísticas
-  const aumentarStat = (stat) => {
+  /**
+   * Incrementar estadísticas y guardarlas automáticamente
+   */
+  const aumentarStat = async (stat) => {
     if (puntos > 0) {
-      setStats({ ...stats, [stat]: stats[stat] + 1 });
-      setPuntos(puntos - 1);
+      const nuevosStats = { ...stats, [stat]: stats[stat] + 1 };
+      const nuevosPuntos = puntos - 1;
+
+      // Actualizamos visualmente
+      setStats(nuevosStats);
+      setPuntos(nuevosPuntos);
+
+      // Guardamos en backend (autosave)
+      try {
+        setMensaje('Guardando...');
+        const updatedStats = {
+          ...nuevosStats,
+          puntosRestantes: nuevosPuntos,
+        };
+
+        const data = await updateHeroStats(updatedStats);
+        console.log('Hero actualizado:', data);
+        setMensaje('Cambios guardados automáticamente');
+      } catch (error) {
+        console.error('Error al guardar cambios:', error);
+        setMensaje('Error al guardar cambios');
+      }
     }
   };
 
@@ -36,8 +65,8 @@ const CharacterModal = ({ onClose }) => {
             <img
               src={
                 personaje === 'Barbaro'
-                  ? '/assets/images/characters/BarbaroModal.png'
-                  : '/assets/images/characters/GuerreroModal.png'
+                  ? '/assets/images/home/BarbaroModal4.jpg'
+                  : '/assets/images/home/GuerreroModal.jpg'
               }
               alt={personaje}
             />
@@ -51,7 +80,10 @@ const CharacterModal = ({ onClose }) => {
                 <li key={key}>
                   <span>{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
                   <span>{value}</span>
-                  <button onClick={() => aumentarStat(key)} disabled={puntos === 0}>
+                  <button
+                    onClick={() => aumentarStat(key)}
+                    disabled={puntos === 0}
+                  >
                     +
                   </button>
                 </li>
@@ -62,14 +94,12 @@ const CharacterModal = ({ onClose }) => {
 
         {/* Contenedor inferior */}
         <div className="character-modal__bottom">
-          {/* Nivel, experiencia y puntos */}
           <div className="character-modal__progress">
             <p>LVL: {nivel}</p>
             <p>EXP: {expActual}/{expMax}</p>
             <p>Puntos: {puntos}</p>
           </div>
 
-          {/* Habilidades */}
           <div className="character-modal__skills">
             <h3>Habilidades</h3>
             <div className="character-modal__skills-grid">
@@ -106,6 +136,9 @@ const CharacterModal = ({ onClose }) => {
               )}
             </div>
           </div>
+
+          {/* Mensaje de guardado automático */}
+          {mensaje && <p className="character-modal__message">{mensaje}</p>}
         </div>
       </div>
     </div>

@@ -45,10 +45,10 @@ const Home = () => {
         >
           <img
             src="/assets/images/home/Room 1.jpg"
-            alt="Habitación"
+            alt="El Viaje"
             className="home-page__image"
           />
-          <p className="home-page__label">Habitación</p>
+          <p className="home-page__label">El Viaje</p>
         </div>
       </main>
 

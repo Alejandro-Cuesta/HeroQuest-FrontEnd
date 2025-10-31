@@ -50,63 +50,66 @@ const RegisterForm = () => {
   };
 
   return (
-     <div className="register-page">
+    <>
+      {/* Imagen de fondo (fuera del formulario para que no interfiera con el centrado) */}
       <div className="register-page__background" />
 
-    <form onSubmit={handleSubmit}  className="register-form">
-      <h2>Register</h2>
+      {/* Formulario de registro */}
+      <form onSubmit={handleSubmit} className="register-form">
+        <h2>Register</h2>
 
-      {/* Mostrar error si existe */}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+        {/* Mostrar error si existe */}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {/* Input para email / username */}
-      <input
-        type="email"
-        name="username"
-        placeholder="Email"
-        value={form.username}
-        onChange={handleChange}
-        required
-      />
+        {/* Input para email / username */}
+        <input
+          type="email"
+          name="username"
+          placeholder="Email"
+          value={form.username}
+          onChange={handleChange}
+          required
+        />
 
-      {/* Input para displayName */}
-      <input
-        type="text"
-        name="displayName"
-        placeholder="Nombre de usuario"
-        value={form.displayName}
-        onChange={handleChange}
-        required
-      />
+        {/* Input para displayName */}
+        <input
+          type="text"
+          name="displayName"
+          placeholder="Nombre de usuario"
+          value={form.displayName}
+          onChange={handleChange}
+          required
+        />
 
-      {/* Input para password */}
-      <input
-        type="password"
-        name="password"
-        placeholder="Contraseña"
-        value={form.password}
-        onChange={handleChange}
-        required
-      />
+        {/* Input para password */}
+        <input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          value={form.password}
+          onChange={handleChange}
+          required
+        />
 
-      {/* Input para confirmPassword */}
-      <input
-        type="password"
-        name="confirmPassword"
-        placeholder="Confirmar Contraseña"
-        value={form.confirmPassword}
-        onChange={handleChange}
-        required
-      />
+        {/* Input para confirmPassword */}
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirmar Contraseña"
+          value={form.confirmPassword}
+          onChange={handleChange}
+          required
+        />
 
-      {/* Botón de envío */}
-      <button type="submit">Registrarse</button>
+        {/* Botón de envío */}
+        <button type="submit">Registrarse</button>
 
-      <p className="register-form__login">
-        ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
-      </p>
-    </form>
-  </div>
+        {/* Enlace a login */}
+        <p className="register-form__login">
+          ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
+        </p>
+      </form>
+    </>
   );
 };
 

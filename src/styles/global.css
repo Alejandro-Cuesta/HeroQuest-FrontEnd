@@ -1,0 +1,25 @@
+/* Elimina márgenes y rellenos del html y body */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Asegura consistencia en el box-sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Quita cualquier borde blanco lateral por defecto */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Opcional — fondo neutro (solo visible si la página no define otro fondo) */
+body {
+  background-color: #000; /* Negro neutro, pero puede ser #0000 si prefieres transparente */
+}

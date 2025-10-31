@@ -1,24 +1,46 @@
-import API from './axiosConfig'; // nuestra instancia de Axios con baseURL e interceptor
+import API from './axiosConfig';
 
-// Función para login
+/**
+ * LOGIN (doble paso)
+ * Valida credenciales en /auth/login
+ * Genera token JWT en /auth/token con Basic Auth
+ */
 export const login = async (credentials) => {
   try {
-    const response = await API.post('/auth/login', credentials);
-    // response.data debe contener { user, token } desde backend
-    return response.data;
+    // Paso 1: validar credenciales
+    const loginResponse = await API.post('/auth/login', credentials);
+    console.log('Credenciales válidas:', loginResponse.data);
+
+    // Paso 2: solicitar token JWT
+    const basicAuthHeader = 'Basic ' + btoa(`${credentials.username}:${credentials.password}`);
+
+    const tokenResponse = await API.post('/auth/token', null, {
+      headers: {
+        Authorization: basicAuthHeader,
+      },
+    });
+
+    const token = tokenResponse.data;
+    console.log('Token JWT recibido:', token);
+
+    // Devolvemos al frontend el usuario y el token
+    return { user: loginResponse.data, token };
   } catch (error) {
-    // Podemos mejorar el mensaje según la respuesta del backend
-    throw new Error(error.response?.data?.message || 'Login failed');
+    console.error('Error en login:', error.response?.status, error.response?.data);
+    throw new Error('Error de inicio de sesión');
   }
 };
 
-// Función para registro
+/**
+ * REGISTRO de nuevo usuario
+ */
 export const register = async (userData) => {
   try {
     const response = await API.post('/auth/register', userData);
-    // response.data debe contener { user, token } desde backend
+    console.log('Usuario registrado:', response.data);
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Registration failed');
+    console.error('Error en registro:', error.response?.data);
+    throw new Error('Error en el registro');
   }
 };

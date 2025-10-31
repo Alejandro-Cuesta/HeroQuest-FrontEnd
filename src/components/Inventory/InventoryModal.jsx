@@ -1,6 +1,6 @@
 import React from 'react';
 
-// 🔹 Componente temporal para evitar errores de compilación
+// Componente temporal para evitar errores de compilación
 // Más adelante implementaremos la lógica y diseño del inventario
 const InventoryModal = () => {
   return (

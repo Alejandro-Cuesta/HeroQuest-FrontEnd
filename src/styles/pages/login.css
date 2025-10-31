@@ -1,31 +1,107 @@
+/* Contenedor principal */
 .login-page {
   position: relative;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Header arriba, contenido debajo */
 }
 
+/* Header: aseguramos que esté pegado arriba */
+.header {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* un poco menos transparente para mejor contraste */
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Imagen de fondo */
 .login-page__background {
-  position: absolute;
-  inset: 0;
+  position: fixed; /* Que cubra toda la ventana */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('/assets/backgrounds/Fondo 2.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top; /* centrada en la parte superior */
   z-index: -1;
+  filter: brightness(0.6); /* menos oscura para que se vea mejor el login */
 }
 
+/* Contenido central */
+.login-page__content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ocupa toda la ventana para centrar verticalmente */
+  padding: 2rem;
+}
+
+/* Formulario */
 .login-form {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.4); /* más transparente para ver el fondo */
   border: 2px solid gold;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem 3rem;
   color: #f0e6d2;
   text-align: center;
-  width: 300px;
+  width: 100%;
+  max-width: 400px; /* Limita tamaño en escritorio */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* espacio uniforme entre inputs y botón */
 }
 
+/* Título */
 .login-form h2 {
   color: gold;
   font-family: 'UnifrakturCook', cursive;
+  margin-bottom: 1rem;
+}
+
+/* Inputs y botón */
+.login-form input,
+.login-form button {
+  width: 100%; /* botón y inputs alineados */
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form button {
+  background-color: gold;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-form button:hover {
+  background-color: darkgoldenrod;
+}
+
+/* Enlace de registro */
+.login-form__register {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.login-form__register a {
+  color: violet;
+  text-decoration: underline;
+}
+
+/* Responsive simple */
+@media (max-width: 500px) {
+  .login-form {
+    padding: 2rem;
+    width: 90%;
+  }
 }
