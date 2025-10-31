@@ -1,16 +1,103 @@
-# React + Vite
+# HeroQuest Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de la aplicación **HeroQuest**, un juego de aventuras RPG basado en navegador, desarrollado con **React**. Permite a los usuarios crear personajes, explorar habitaciones, combatir enemigos y gestionar inventario.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📂 Estructura del Proyecto
 
-## React Compiler
+heroquest-frontend/
+├── public/
+│ ├── index.html
+│ └── assets/
+│ ├── video/
+│ │ └── intro.mp4
+│ ├── images/
+│ │ ├── characters/
+│ │ ├── enemies/
+│ │ └── rooms/
+│ └── icons/
+├── src/
+│ ├── api/
+│ │ ├── axiosConfig.js
+│ │ ├── authApi.js
+│ │ ├── characterApi.js
+│ │ ├── roomApi.js
+│ │ └── inventoryApi.js
+│ ├── components/
+│ │ ├── Auth/
+│ │ │ ├── LoginForm.jsx
+│ │ │ └── RegisterForm.jsx
+│ │ ├── Character/
+│ │ │ ├── CharacterCard.jsx
+│ │ │ └── CharacterModal.jsx
+│ │ ├── Room/
+│ │ │ ├── RoomSelector.jsx
+│ │ │ └── RoomModal.jsx
+│ │ ├── Inventory/
+│ │ │ ├── InventoryGrid.jsx
+│ │ │ └── InventoryItem.jsx
+│ │ └── UI/
+│ │ ├── Navbar.jsx
+│ │ ├── Button.jsx
+│ │ └── Modal.jsx
+│ ├── context/
+│ │ ├── AuthContext.jsx
+│ │ ├── GameContext.jsx
+│ │ └── ThemeContext.jsx
+│ ├── hooks/
+│ │ ├── useAuth.js
+│ │ ├── useCharacter.js
+│ │ └── useInventory.js
+│ ├── pages/
+│ │ ├── Home.jsx
+│ │ ├── Game.jsx
+│ │ ├── Login.jsx
+│ │ ├── Register.jsx
+│ │ └── NotFound.jsx
+│ ├── router/
+│ │ └── AppRouter.jsx
+│ ├── styles/
+│ │ ├── global.css
+│ │ └── components/
+│ │ ├── character.css
+│ │ └── inventory.css
+│ ├── App.jsx
+│ └── main.jsx
+├── package.json
+└── README.md
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚡ Tecnologías
+
+- **React 18** – Librería principal para el frontend.
+- **React Router** – Navegación entre páginas.
+- **Axios** – Comunicación con el backend.
+- **Context API** – Gestión de estado global (Auth, Game, Theme).
+- **CSS puro / modular** – Estilos globales y por componente.
+- **Vite / Create React App** – Configuración del proyecto (según se use).
+- **Figma** - Diseño del proyecto
+---
+
+
+
+## 🚀 Instalación
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/Alejandro-Cuesta/heroquest-frontend.git
+
+
+
+##  Cobertura de Tests
+![Cobertura de Tests](./public/assets/Cobertura.png)
+
+
+
+##  Autor
+
+Alejandro Cuesta Cabeza
+
+https://github.com/Alejandro-Cuesta
