@@ -5,7 +5,7 @@ Frontend de la aplicación **HeroQuest**, un juego de aventuras RPG basado en na
 ---
 
 ## 📂 Estructura del Proyecto
-
+```bash
 heroquest-frontend/
 ├── public/
 │ ├── index.html
@@ -66,7 +66,7 @@ heroquest-frontend/
 │ └── main.jsx
 ├── package.json
 └── README.md
-
+```
 
 
 ## ⚡ Tecnologías
