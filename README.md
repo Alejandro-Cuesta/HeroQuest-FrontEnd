@@ -86,7 +86,7 @@ heroquest-frontend/
 
 1. Clonar el repositorio:
 
-```bash
+
 git clone https://github.com/Alejandro-Cuesta/heroquest-frontend.git
 
 
