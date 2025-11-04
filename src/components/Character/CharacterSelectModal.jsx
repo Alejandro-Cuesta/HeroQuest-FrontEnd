@@ -3,12 +3,11 @@ import '../../styles/pages/characterSelectModal.css';
 
 /**
  * Modal para seleccionar el personaje inicial del jugador
- * onSelect función que se ejecuta al elegir héroe
+ * - Se muestra solo al primer login si no tiene héroe
  */
 const CharacterSelectModal = ({ onSelect }) => {
-  // Llamada interna al click de cada héroe
   const handleClick = (character) => {
-    onSelect(character); // esto hace POST y cierra modal en LoginForm
+    onSelect(character); // crea héroe y cierra modal
   };
 
   return (
@@ -17,25 +16,13 @@ const CharacterSelectModal = ({ onSelect }) => {
       <div className="character-select-modal">
         <h2>Elige tu héroe</h2>
         <div className="character-select-grid">
-          <div
-            className="character-option"
-            onClick={() => handleClick('Barbaro')}
-          >
-            <img
-              src="/assets/images/home/BarbaroModal4.jpg"
-              alt="Barbaro"
-            />
+          <div className="character-option" onClick={() => handleClick('Barbaro')}>
+            <img src="/assets/images/home/BarbaroModal4.jpg" alt="Barbaro" />
             <p>Bárbaro</p>
           </div>
 
-          <div
-            className="character-option"
-            onClick={() => handleClick('Guerrero')}
-          >
-            <img
-              src="/assets/images/home/GuerreroModal.jpg"
-              alt="Guerrero"
-            />
+          <div className="character-option" onClick={() => handleClick('Guerrero')}>
+            <img src="/assets/images/home/GuerreroModal.jpg" alt="Guerrero" />
             <p>Guerrero</p>
           </div>
         </div>

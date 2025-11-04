@@ -1,0 +1,48 @@
+.game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c2c2c;
+    height: 100vh;
+    color: white;
+    font-family: 'MedievalSharp', serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(26, 30px);
+    grid-template-rows: repeat(19, 30px);
+    gap: 1px;
+    margin-top: 20px;
+    background-color: #222;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero {
+    font-size: 22px;
+}
+
+.enemy {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.chest {
+    font-size: 20px;
+}
+
+.message {
+    margin-top: 15px;
+    background-color: #111;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
